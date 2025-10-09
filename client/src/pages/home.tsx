@@ -25,7 +25,10 @@ import {
   Menu,
   X,
   Facebook,
-  Linkedin
+  Linkedin,
+  Award,
+  TrendingUp,
+  ThumbsUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,6 +64,33 @@ const services = [
   { id: "cleaning", name: "Cleaning Services", icon: Sparkles, description: "For homes, offices, and commercial properties." },
   { id: "landscaping", name: "Landscaping", icon: Sprout, description: "Professional garden design and maintenance." },
   { id: "waste", name: "Waste Removal", icon: Trash2, description: "Site clearing and waste management." },
+];
+
+const statistics = [
+  {
+    icon: Building2,
+    number: "500+",
+    label: "Projects Completed",
+    description: "Successfully delivered across Bloemfontein"
+  },
+  {
+    icon: Users,
+    number: "300+",
+    label: "Happy Clients",
+    description: "Businesses, households, and institutions"
+  },
+  {
+    icon: Award,
+    number: "15+",
+    label: "Years Experience",
+    description: "In construction and maintenance services"
+  },
+  {
+    icon: ThumbsUp,
+    number: "100%",
+    label: "Client Satisfaction",
+    description: "Committed to excellence and reliability"
+  }
 ];
 
 const trustFeatures = [
@@ -350,6 +380,31 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Statistics Section */}
+        <section className="py-20 bg-primary" data-testid="statistics-section">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {statistics.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="text-center text-white"
+                    data-testid={`stat-${index}`}
+                  >
+                    <div className="bg-white/10 w-20 h-20 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                      <Icon className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-5xl font-bold mb-3 tracking-tight">{stat.number}</h3>
+                    <h4 className="text-xl font-semibold mb-2 tracking-tight">{stat.label}</h4>
+                    <p className="text-white/90 text-sm">{stat.description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Services Section */}
         <section id="services" className="py-24 bg-neutral-light" data-testid="services-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -589,33 +644,170 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Newsletter Section */}
+        <section className="py-20 bg-gradient-to-br from-primary to-primary-dark" data-testid="newsletter-section">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="section-title text-4xl sm:text-5xl text-white mb-6" data-testid="newsletter-title">
+              Stay Updated with Our Latest Projects
+            </h2>
+            <p className="text-xl text-white/95 mb-10 max-w-2xl mx-auto leading-relaxed" data-testid="newsletter-subtitle">
+              Subscribe to our newsletter to receive updates on new projects, services, and construction insights.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" data-testid="newsletter-form">
+              <Input 
+                type="email" 
+                placeholder="Enter your email address"
+                className="flex-1 h-14 px-6 bg-white text-gray-900 placeholder:text-gray-500 border-0 focus:ring-2 focus:ring-white"
+                data-testid="input-newsletter-email"
+              />
+              <Button 
+                type="submit"
+                className="h-14 px-8 bg-gray-900 text-white hover:bg-gray-800 border-2 border-white font-semibold text-base uppercase tracking-wide"
+                data-testid="btn-subscribe"
+              >
+                Subscribe
+              </Button>
+            </form>
+            <p className="text-white/80 text-sm mt-6">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-16 border-t-4 border-primary" data-testid="footer">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-              <div className="text-center md:text-left">
-                <p className="text-gray-400" data-testid="footer-copyright">
+            <div className="grid md:grid-cols-4 gap-12 mb-12">
+              {/* Company Info */}
+              <div className="md:col-span-1">
+                <img 
+                  src={logoPath} 
+                  alt="Ephaphatha Construction Logo" 
+                  className="h-16 w-auto mb-6" 
+                  data-testid="footer-logo"
+                />
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  Your trusted partner for quality construction, maintenance, and supply services across Bloemfontein.
+                </p>
+                <div className="flex gap-3">
+                  <a 
+                    href="#" 
+                    className="bg-gray-800 p-3 hover:bg-primary transition-colors" 
+                    aria-label="Facebook"
+                    data-testid="footer-facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="#" 
+                    className="bg-gray-800 p-3 hover:bg-primary transition-colors" 
+                    aria-label="LinkedIn"
+                    data-testid="footer-linkedin"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h3 className="text-lg font-bold mb-6 tracking-tight">Quick Links</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <button 
+                      onClick={() => scrollToSection('home')}
+                      className="text-gray-400 hover:text-primary transition-colors text-sm"
+                      data-testid="footer-link-home"
+                    >
+                      Home
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => scrollToSection('about')}
+                      className="text-gray-400 hover:text-primary transition-colors text-sm"
+                      data-testid="footer-link-about"
+                    >
+                      About Us
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => scrollToSection('services')}
+                      className="text-gray-400 hover:text-primary transition-colors text-sm"
+                      data-testid="footer-link-services"
+                    >
+                      Services
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => scrollToSection('contact')}
+                      className="text-gray-400 hover:text-primary transition-colors text-sm"
+                      data-testid="footer-link-contact"
+                    >
+                      Contact
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Services */}
+              <div>
+                <h3 className="text-lg font-bold mb-6 tracking-tight">Our Services</h3>
+                <ul className="space-y-3">
+                  <li className="text-gray-400 text-sm">General Building</li>
+                  <li className="text-gray-400 text-sm">Plumbing Services</li>
+                  <li className="text-gray-400 text-sm">Electrical Work</li>
+                  <li className="text-gray-400 text-sm">Landscaping</li>
+                  <li className="text-gray-400 text-sm">More Services...</li>
+                </ul>
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <h3 className="text-lg font-bold mb-6 tracking-tight">Contact Us</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-primary mt-0.5" />
+                    <a 
+                      href="tel:+27680222228" 
+                      className="text-gray-400 hover:text-primary transition-colors text-sm"
+                      data-testid="footer-phone"
+                    >
+                      +27 68 022 2228
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-primary mt-0.5" />
+                    <a 
+                      href="mailto:Ephaphathac@gmail.com" 
+                      className="text-gray-400 hover:text-primary transition-colors text-sm break-all"
+                      data-testid="footer-email"
+                    >
+                      Ephaphathac@gmail.com
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                    <p className="text-gray-400 text-sm">
+                      37723 Freedom Square, Bloemfontein
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-gray-800 pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p className="text-gray-400 text-sm" data-testid="footer-copyright">
                   © 2025 Ephaphatha Construction (Pty) Ltd. All Rights Reserved.
                 </p>
-              </div>
-              
-              <div className="flex gap-4">
-                <a 
-                  href="#" 
-                  className="bg-gray-800 p-3 hover:bg-primary transition-colors" 
-                  aria-label="Facebook"
-                  data-testid="link-facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href="#" 
-                  className="bg-gray-800 p-3 hover:bg-primary transition-colors" 
-                  aria-label="LinkedIn"
-                  data-testid="link-linkedin"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
+                <div className="flex gap-6 text-sm">
+                  <span className="text-gray-400">B-BBEE Level 1 Contributor</span>
+                  <span className="text-gray-400">Tax Compliant</span>
+                </div>
               </div>
             </div>
           </div>
