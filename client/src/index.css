@@ -161,4 +161,47 @@
   .enterprise-shadow-lg {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
+  
+  .contact-info-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .contact-info-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .contact-info-card .icon-wrapper {
+    transition: all 0.3s ease;
+  }
+  
+  .contact-info-card:hover .icon-wrapper {
+    transform: scale(1.05);
+  }
+  
+  .vision-mission-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(to right, transparent 0px, transparent 2px, white 2px);
+  }
+  
+  .vision-mission-card:hover {
+    background: linear-gradient(to right, rgba(204, 132, 0, 0.05) 0px, rgba(204, 132, 0, 0.05) 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-container {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .form-container:focus-within {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .trust-feature-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .trust-feature-card:hover {
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
 }

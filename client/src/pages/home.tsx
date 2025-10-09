@@ -320,27 +320,27 @@ export default function Home() {
                 
                 <div className="space-y-8">
                   {/* Vision */}
-                  <div className="border-l-4 border-primary-light pl-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="bg-primary-light p-2">
+                  <div className="vision-mission-card border-l-4 border-primary-light pl-6 py-4">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-primary-light p-3">
                         <Goal className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900">Our Vision</h3>
+                      <h3 className="text-xl font-bold text-gray-900 tracking-tight">Our Vision</h3>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 leading-relaxed text-base">
                       To become a premier provider in general construction, maintenance, and supply services in South Africa, recognized for our integrity, quality, and a customer-centric approach.
                     </p>
                   </div>
                   
                   {/* Mission */}
-                  <div className="border-l-4 border-primary pl-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="bg-primary p-2">
+                  <div className="vision-mission-card border-l-4 border-primary pl-6 py-4">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-primary p-3">
                         <Rocket className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900">Our Mission</h3>
+                      <h3 className="text-xl font-bold text-gray-900 tracking-tight">Our Mission</h3>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 leading-relaxed text-base">
                       To provide efficient, cost-effective, and high-quality services that enhance the living and working environments of our clients and to be a trusted partner in the Bloemfontein community and beyond.
                     </p>
                   </div>
@@ -408,14 +408,14 @@ export default function Home() {
                 return (
                   <div 
                     key={index}
-                    className="bg-white/10 backdrop-blur-sm p-10 text-center border-2 border-white/20 hover:bg-white/15 transition-all"
+                    className="trust-feature-card bg-white/10 backdrop-blur-sm p-10 text-center border-2 border-white/20"
                     data-testid={`trust-feature-${index}`}
                   >
                     <div className="bg-white w-20 h-20 flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-10 h-10 text-primary" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{feature.title}</h3>
-                    <p className="text-white/95 leading-relaxed">{feature.description}</p>
+                    <p className="text-white/95 leading-relaxed text-base">{feature.description}</p>
                   </div>
                 );
               })}
@@ -443,8 +443,8 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-8 tracking-tight">Contact Information</h3>
                   
                   {/* Phone */}
-                  <div className="flex items-start gap-5 mb-8 group" data-testid="contact-phone">
-                    <div className="bg-primary-light p-4 group-hover:bg-primary transition-colors">
+                  <div className="contact-info-card flex items-start gap-5 mb-8" data-testid="contact-phone">
+                    <div className="icon-wrapper bg-primary-light p-4">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -460,8 +460,8 @@ export default function Home() {
                   </div>
                   
                   {/* Email */}
-                  <div className="flex items-start gap-5 mb-8 group" data-testid="contact-email">
-                    <div className="bg-primary p-4 group-hover:bg-primary-dark transition-colors">
+                  <div className="contact-info-card flex items-start gap-5 mb-8" data-testid="contact-email">
+                    <div className="icon-wrapper bg-primary p-4">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -477,8 +477,8 @@ export default function Home() {
                   </div>
                   
                   {/* Address */}
-                  <div className="flex items-start gap-5 group" data-testid="contact-address">
-                    <div className="bg-primary-dark p-4 group-hover:bg-primary transition-colors">
+                  <div className="contact-info-card flex items-start gap-5" data-testid="contact-address">
+                    <div className="icon-wrapper bg-primary-dark p-4">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -499,7 +499,7 @@ export default function Home() {
               </div>
               
               {/* Right Column: Contact Form */}
-              <div className="bg-neutral-light p-10 enterprise-shadow">
+              <div className="form-container bg-neutral-light p-10 enterprise-shadow">
                 <h3 className="text-2xl font-bold text-gray-900 mb-8 tracking-tight">Send Us a Message</h3>
                 
                 <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6" data-testid="contact-form">
