@@ -38,6 +38,9 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { SEO } from "@/components/ui/seo";
 import logoPath from "@assets/WhatsApp Image 2025-10-03 at 14.25.08_4b18e548_1760004153354.jpg";
+import heroImage from "@assets/construction-site-sunset_1760006430190.webp";
+import aboutImage from "@assets/civil-engineer-construction-worker-manager-holding-digital-tablet-blueprints-talking-planing-about-construction-site-cooperation-teamwork-concept_1760006430189.webp";
+import contactImage from "@assets/afro-american-builders-wearing-helmets-face-masks-while-measuring-wall_1760006430189.webp";
 
 interface ContactFormData {
   fullName: string;
@@ -250,100 +253,113 @@ export default function Home() {
         <section id="home" className="relative pt-20 min-h-screen flex items-center" data-testid="hero-section">
           <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200" 
-              alt="Construction site background" 
+              src={heroImage} 
+              alt="Construction site at sunset" 
               className="w-full h-full object-cover"
               data-testid="hero-background-image"
             />
             <div className="hero-overlay absolute inset-0"></div>
           </div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center text-white">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight" data-testid="hero-title">
-              Building Excellence, Delivering Trust
-            </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto font-light leading-relaxed" data-testid="hero-subtitle">
-              Ephaphatha Construction offers versatile and innovative construction, maintenance, and supply services across Bloemfontein. Your trusted partner for quality and reliability.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                onClick={() => scrollToSection('services')}
-                className="btn-primary px-8 py-4 font-semibold text-lg"
-                data-testid="btn-hero-services"
-              >
-                Our Services
-              </Button>
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                variant="outline"
-                className="btn-secondary px-8 py-4 font-semibold text-lg border-white text-white hover:bg-white hover:text-primary"
-                data-testid="btn-hero-contact"
-              >
-                Contact Us
-              </Button>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-white">
+            <div className="max-w-4xl">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight" data-testid="hero-title">
+                Building Excellence, Delivering Trust
+              </h1>
+              <div className="h-1 w-24 bg-primary-light mb-8"></div>
+              <p className="tagline text-xl sm:text-2xl lg:text-3xl mb-12 max-w-4xl leading-relaxed" data-testid="hero-subtitle">
+                Ephaphatha Construction offers versatile and innovative construction, maintenance, and supply services across Bloemfontein — your trusted partner for quality and reliability.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <Button 
+                  onClick={() => scrollToSection('services')}
+                  className="btn-primary px-10 py-6 text-base"
+                  data-testid="btn-hero-services"
+                >
+                  Explore Our Services
+                </Button>
+                <Button 
+                  onClick={() => scrollToSection('contact')}
+                  variant="outline"
+                  className="btn-secondary px-10 py-6 text-base border-2 border-white text-white hover:bg-white hover:text-primary"
+                  data-testid="btn-hero-contact"
+                >
+                  Get a Free Quote
+                </Button>
+              </div>
             </div>
           </div>
         </section>
 
         {/* About Us Section */}
-        <section id="about" className="py-20 bg-neutral-light" data-testid="about-section">
+        <section id="about" className="py-24 bg-white" data-testid="about-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6" data-testid="about-title">
-                Your Vision, Built with Integrity
-              </h2>
-              <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed" data-testid="about-description">
-                Ephaphatha Construction is a versatile and innovative company based in Bloemfontein, dedicated to delivering high-quality services across multiple sectors. We serve businesses, households, and public institutions with a commitment to excellence, professionalism, and building long-term client relationships.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Vision Card */}
-              <Card className="shadow-lg" data-testid="vision-card">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary-light p-3 rounded-lg">
-                      <Goal className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        To become a premier provider in general construction, maintenance, and supply services in South Africa, recognized for our integrity, quality, and a customer-centric approach.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left: Image */}
+              <div className="relative">
+                <div className="absolute -inset-4 bg-primary/5"></div>
+                <img 
+                  src={aboutImage} 
+                  alt="Civil engineer and construction worker collaborating" 
+                  className="relative w-full h-[500px] object-cover enterprise-shadow-lg"
+                  data-testid="about-image"
+                />
+              </div>
               
-              {/* Mission Card */}
-              <Card className="shadow-lg" data-testid="mission-card">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary p-3 rounded-lg">
-                      <Rocket className="w-8 h-8 text-white" />
+              {/* Right: Content */}
+              <div>
+                <div className="mb-12">
+                  <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-6" data-testid="about-title">
+                    Your Vision, Built with Integrity
+                  </h2>
+                  <div className="h-1 w-20 bg-primary mb-8"></div>
+                  <p className="text-lg text-gray-700 leading-relaxed" data-testid="about-description">
+                    Ephaphatha Construction is a versatile and innovative company based in Bloemfontein, dedicated to delivering high-quality services across multiple sectors. We serve businesses, households, and public institutions with a commitment to excellence, professionalism, and building long-term client relationships.
+                  </p>
+                </div>
+                
+                <div className="space-y-8">
+                  {/* Vision */}
+                  <div className="border-l-4 border-primary-light pl-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="bg-primary-light p-2">
+                        <Goal className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">Our Vision</h3>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        To provide efficient, cost-effective, and high-quality services that enhance the living and working environments of our clients and to be a trusted partner in the Bloemfontein community and beyond.
-                      </p>
-                    </div>
+                    <p className="text-gray-700 leading-relaxed">
+                      To become a premier provider in general construction, maintenance, and supply services in South Africa, recognized for our integrity, quality, and a customer-centric approach.
+                    </p>
                   </div>
-                </CardContent>
-              </Card>
+                  
+                  {/* Mission */}
+                  <div className="border-l-4 border-primary pl-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="bg-primary p-2">
+                        <Rocket className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">Our Mission</h3>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">
+                      To provide efficient, cost-effective, and high-quality services that enhance the living and working environments of our clients and to be a trusted partner in the Bloemfontein community and beyond.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-white" data-testid="services-section">
+        <section id="services" className="py-24 bg-neutral-light" data-testid="services-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6" data-testid="services-title">
+            <div className="text-center mb-20">
+              <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-6" data-testid="services-title">
                 Our Comprehensive Services
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto" data-testid="services-subtitle">
-                From construction to maintenance, we provide end-to-end solutions for all your building needs.
+              <div className="h-1 w-20 bg-primary mx-auto mb-6"></div>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed" data-testid="services-subtitle">
+                From construction to maintenance, we provide end-to-end solutions for all your building needs across Bloemfontein.
               </p>
             </div>
             
@@ -356,15 +372,15 @@ export default function Home() {
                 return (
                   <Card 
                     key={service.id} 
-                    className="service-card shadow-md hover:shadow-xl border border-gray-200"
+                    className="service-card enterprise-shadow bg-white border-0"
                     data-testid={`service-card-${service.id}`}
                   >
                     <CardContent className="p-6">
-                      <div className={`${bgColor} w-14 h-14 rounded-lg flex items-center justify-center mb-4`}>
-                        <Icon className="w-7 h-7 text-white" />
+                      <div className={`icon-box ${bgColor} w-16 h-16 flex items-center justify-center mb-5`}>
+                        <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                      <p className="text-gray-600">{service.description}</p>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3 tracking-tight">{service.name}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                     </CardContent>
                   </Card>
                 );
@@ -374,13 +390,14 @@ export default function Home() {
         </section>
 
         {/* Trust & Compliance Section */}
-        <section className="py-20 bg-gradient-to-br from-primary-dark to-primary" data-testid="trust-section">
+        <section className="py-24 bg-gradient-to-br from-primary-dark to-primary" data-testid="trust-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6" data-testid="trust-title">
+            <div className="text-center mb-20">
+              <h2 className="section-title text-4xl sm:text-5xl text-white mb-6" data-testid="trust-title">
                 Why Choose Us?
               </h2>
-              <p className="text-lg text-white/90 max-w-3xl mx-auto" data-testid="trust-subtitle">
+              <div className="h-1 w-20 bg-white mx-auto mb-6"></div>
+              <p className="text-xl text-white/95 max-w-3xl mx-auto leading-relaxed" data-testid="trust-subtitle">
                 We combine expertise with integrity to deliver exceptional results every time.
               </p>
             </div>
@@ -391,14 +408,14 @@ export default function Home() {
                 return (
                   <div 
                     key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20"
+                    className="bg-white/10 backdrop-blur-sm p-10 text-center border-2 border-white/20 hover:bg-white/15 transition-all"
                     data-testid={`trust-feature-${index}`}
                   >
-                    <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Icon className="w-8 h-8 text-primary" />
+                    <div className="bg-white w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-10 h-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-                    <p className="text-white/90">{feature.description}</p>
+                    <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{feature.title}</h3>
+                    <p className="text-white/95 leading-relaxed">{feature.description}</p>
                   </div>
                 );
               })}
@@ -407,13 +424,14 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-white" data-testid="contact-section">
+        <section id="contact" className="py-24 bg-white" data-testid="contact-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6" data-testid="contact-title">
+            <div className="text-center mb-20">
+              <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-6" data-testid="contact-title">
                 Let's Build Something Together
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto" data-testid="contact-subtitle">
+              <div className="h-1 w-20 bg-primary mx-auto mb-6"></div>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed" data-testid="contact-subtitle">
                 Get in touch with us today to discuss your project and receive a free quote.
               </p>
             </div>
@@ -422,18 +440,18 @@ export default function Home() {
               {/* Left Column: Contact Details */}
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-8 tracking-tight">Contact Information</h3>
                   
                   {/* Phone */}
-                  <div className="flex items-start gap-4 mb-6" data-testid="contact-phone">
-                    <div className="bg-primary-light p-3 rounded-lg">
+                  <div className="flex items-start gap-5 mb-8 group" data-testid="contact-phone">
+                    <div className="bg-primary-light p-4 group-hover:bg-primary transition-colors">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
+                      <h4 className="font-bold text-gray-900 mb-2 tracking-tight">Phone</h4>
                       <a 
                         href="tel:+27680222228" 
-                        className="text-gray-600 hover:text-primary transition-colors"
+                        className="text-gray-700 hover:text-primary transition-colors text-lg"
                         data-testid="link-phone"
                       >
                         +27 68 022 2228
@@ -442,15 +460,15 @@ export default function Home() {
                   </div>
                   
                   {/* Email */}
-                  <div className="flex items-start gap-4 mb-6" data-testid="contact-email">
-                    <div className="bg-primary p-3 rounded-lg">
+                  <div className="flex items-start gap-5 mb-8 group" data-testid="contact-email">
+                    <div className="bg-primary p-4 group-hover:bg-primary-dark transition-colors">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
+                      <h4 className="font-bold text-gray-900 mb-2 tracking-tight">Email</h4>
                       <a 
                         href="mailto:Ephaphathac@gmail.com" 
-                        className="text-gray-600 hover:text-primary transition-colors"
+                        className="text-gray-700 hover:text-primary transition-colors text-lg break-all"
                         data-testid="link-email"
                       >
                         Ephaphathac@gmail.com
@@ -459,30 +477,30 @@ export default function Home() {
                   </div>
                   
                   {/* Address */}
-                  <div className="flex items-start gap-4" data-testid="contact-address">
-                    <div className="bg-primary-dark p-3 rounded-lg">
+                  <div className="flex items-start gap-5 group" data-testid="contact-address">
+                    <div className="bg-primary-dark p-4 group-hover:bg-primary transition-colors">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
-                      <p className="text-gray-600">37723 Freedom Square, Bloemfontein</p>
+                      <h4 className="font-bold text-gray-900 mb-2 tracking-tight">Address</h4>
+                      <p className="text-gray-700 text-lg">37723 Freedom Square, Bloemfontein</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="rounded-xl overflow-hidden shadow-lg">
+                <div className="overflow-hidden enterprise-shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                    alt="Construction professionals at work" 
-                    className="w-full h-64 object-cover"
+                    src={contactImage} 
+                    alt="Construction workers collaborating" 
+                    className="w-full h-80 object-cover"
                     data-testid="contact-image"
                   />
                 </div>
               </div>
               
               {/* Right Column: Contact Form */}
-              <div className="bg-neutral-light rounded-xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+              <div className="bg-neutral-light p-10 enterprise-shadow">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8 tracking-tight">Send Us a Message</h3>
                 
                 <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6" data-testid="contact-form">
                   <div>
@@ -559,7 +577,7 @@ export default function Home() {
                   
                   <Button 
                     type="submit" 
-                    className="btn-primary w-full py-4 font-semibold text-lg"
+                    className="btn-primary w-full py-5 text-base"
                     disabled={contactMutation.isPending}
                     data-testid="btn-submit-form"
                   >
@@ -572,7 +590,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-12" data-testid="footer">
+        <footer className="bg-gray-900 text-white py-16 border-t-4 border-primary" data-testid="footer">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="text-center md:text-left">
@@ -584,7 +602,7 @@ export default function Home() {
               <div className="flex gap-4">
                 <a 
                   href="#" 
-                  className="bg-gray-800 p-3 rounded-lg hover:bg-primary transition-colors" 
+                  className="bg-gray-800 p-3 hover:bg-primary transition-colors" 
                   aria-label="Facebook"
                   data-testid="link-facebook"
                 >
@@ -592,7 +610,7 @@ export default function Home() {
                 </a>
                 <a 
                   href="#" 
-                  className="bg-gray-800 p-3 rounded-lg hover:bg-primary transition-colors" 
+                  className="bg-gray-800 p-3 hover:bg-primary transition-colors" 
                   aria-label="LinkedIn"
                   data-testid="link-linkedin"
                 >
