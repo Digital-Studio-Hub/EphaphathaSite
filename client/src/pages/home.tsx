@@ -293,11 +293,11 @@ export default function Home() {
           
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-white">
             <div className="max-w-4xl">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight" data-testid="hero-title">
+              <h1 className="mb-8" data-testid="hero-title">
                 Building Excellence, Delivering Trust
               </h1>
-              <div className="h-1 w-24 bg-primary-light mb-8"></div>
-              <p className="tagline text-xl sm:text-2xl lg:text-3xl mb-12 max-w-4xl leading-relaxed" data-testid="hero-subtitle">
+              <div className="hero-accent-bar"></div>
+              <p className="text-xl sm:text-2xl lg:text-3xl mb-12 max-w-4xl leading-relaxed font-light" data-testid="hero-subtitle">
                 Ephaphatha Construction offers versatile and innovative construction, maintenance, and supply services across Bloemfontein — your trusted partner for quality and reliability.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 items-start">
@@ -322,7 +322,7 @@ export default function Home() {
         </section>
 
         {/* About Us Section */}
-        <section id="about" className="py-24 bg-white" data-testid="about-section">
+        <section id="about" className="section-spacer bg-white" data-testid="about-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left: Image */}
@@ -339,11 +339,10 @@ export default function Home() {
               {/* Right: Content */}
               <div>
                 <div className="mb-12">
-                  <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-6" data-testid="about-title">
+                  <h2 className="accent-underline text-gray-900 mb-10" data-testid="about-title">
                     Your Vision, Built with Integrity
                   </h2>
-                  <div className="h-1 w-20 bg-primary mb-8"></div>
-                  <p className="text-lg text-gray-700 leading-relaxed" data-testid="about-description">
+                  <p className="text-lg text-gray-700 content-max-width" data-testid="about-description">
                     Ephaphatha Construction is a versatile and innovative company based in Bloemfontein, dedicated to delivering high-quality services across multiple sectors. We serve businesses, households, and public institutions with a commitment to excellence, professionalism, and building long-term client relationships.
                   </p>
                 </div>
@@ -389,7 +388,7 @@ export default function Home() {
                 return (
                   <div 
                     key={index}
-                    className="text-center text-white"
+                    className="stat-card text-center text-white"
                     data-testid={`stat-${index}`}
                   >
                     <div className="bg-white/10 w-20 h-20 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
@@ -406,14 +405,13 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-24 bg-neutral-light" data-testid="services-section">
+        <section id="services" className="section-spacer bg-neutral-light" data-testid="services-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
-              <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-6" data-testid="services-title">
+              <h2 className="accent-underline inline-block text-gray-900 mb-10" data-testid="services-title">
                 Our Comprehensive Services
               </h2>
-              <div className="h-1 w-20 bg-primary mx-auto mb-6"></div>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed" data-testid="services-subtitle">
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-6" data-testid="services-subtitle">
                 From construction to maintenance, we provide end-to-end solutions for all your building needs across Bloemfontein.
               </p>
             </div>
@@ -479,14 +477,13 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-24 bg-white" data-testid="contact-section">
+        <section id="contact" className="section-spacer bg-white" data-testid="contact-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
-              <h2 className="section-title text-4xl sm:text-5xl text-gray-900 mb-6" data-testid="contact-title">
+              <h2 className="accent-underline inline-block text-gray-900 mb-10" data-testid="contact-title">
                 Let's Build Something Together
               </h2>
-              <div className="h-1 w-20 bg-primary mx-auto mb-6"></div>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed" data-testid="contact-subtitle">
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-6" data-testid="contact-subtitle">
                 Get in touch with us today to discuss your project and receive a free quote.
               </p>
             </div>
@@ -657,7 +654,7 @@ export default function Home() {
               <Input 
                 type="email" 
                 placeholder="Enter your email address"
-                className="flex-1 h-14 px-6 bg-white text-gray-900 placeholder:text-gray-500 border-0 focus:ring-2 focus:ring-white"
+                className="newsletter-input flex-1 h-14 px-6 bg-white text-gray-900 placeholder:text-gray-500 border-0 focus:ring-2 focus:ring-white"
                 data-testid="input-newsletter-email"
               />
               <Button 
