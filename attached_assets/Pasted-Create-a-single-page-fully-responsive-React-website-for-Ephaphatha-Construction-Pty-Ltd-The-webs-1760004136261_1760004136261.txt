@@ -1,0 +1,127 @@
+Create a single-page, fully responsive React website for Ephaphatha Construction (Pty) Ltd. The website must have a modern, clean, and creative design with an exceptional user experience (UI/UX). All styling must be done using Tailwind CSS, and all icons must be from the Lucide icon library.
+
+The website should be structured with the following sections, incorporating the information provided below:
+
+1. Header & Navigation
+A sticky navigation bar at the top.
+
+Logo placeholder on the left.
+
+Navigation links on the right: Home, About, Services, Contact.
+
+A prominent "Get a Free Quote" button.
+
+2. Hero Section
+Headline: Building Excellence, Delivering Trust.
+
+Subheading: Ephaphatha Construction offers versatile and innovative construction, maintenance, and supply services across Bloemfontein. Your trusted partner for quality and reliability.
+
+Background: Use a high-quality, professional image related to construction (e.g., architectural blueprints, a modern building structure, or a construction site at dawn).
+
+Call-to-Action Buttons:
+
+"Our Services" (links to the Services section).
+
+"Contact Us" (links to the Contact section).
+
+3. About Us Section
+Heading: Your Vision, Built with Integrity.
+
+Content: "Ephaphatha Construction is a versatile and innovative company based in Bloemfontein, dedicated to delivering high-quality services across multiple sectors. We serve businesses, households, and public institutions with a commitment to excellence, professionalism, and building long-term client relationships."
+
+Sub-section with two columns:
+
+Vision: "To become a premier provider in general construction, maintenance, and supply services in South Africa, recognized for our integrity, quality, and a customer-centric approach." Use the Goal Lucide icon.
+
+Mission: "To provide efficient, cost-effective, and high-quality services that enhance the living and working environments of our clients and to be a trusted partner in the Bloemfontein community and beyond." Use the Rocket Lucide icon.
+
+4. Services Section
+Heading: Our Comprehensive Services.
+
+Layout: Use a responsive grid of cards. Each card should have a subtle hover effect (e.g., lift or shadow increase).
+
+Service Cards (Each with a Lucide icon and a short description):
+
+General Building: (Icon: Building2) New constructions and renovations.
+
+Plumbing Services: (Icon: Wrench) Routine maintenance and full installations.
+
+Fencing Solutions: (Icon: Fence) Durable and secure fencing installations.
+
+Paving: (Icon: Caravan) Residential and commercial paving.
+
+Borehole Drilling: (Icon: Waves) Access to natural water resources.
+
+Electrical Maintenance: (Icon: Plug) Wiring, repairs, and installations.
+
+Painting & Waterproofing: (Icon: PaintRoller) Property protection and beautification.
+
+Stationery & Furniture Supply: (Icon: PenSquare) Office, school, and home supplies.
+
+Cleaning Services: (Icon: Sparkles) For homes, offices, and commercial properties.
+
+Landscaping: (Icon: Sprout) Professional garden design and maintenance.
+
+Waste Removal: (Icon: Trash2) Site clearing and waste management.
+
+5. Trust & Compliance Section
+Heading: Why Choose Us?
+
+Layout: A clean, simple section with icons and text to build client confidence.
+
+Points to Highlight:
+
+B-BBEE Level 1 Contributor: (Icon: BadgeCheck) "We are proud to be a Level 1 B-BBEE contributor, committed to economic empowerment."
+
+Tax Compliant: (Icon: ShieldCheck) "Fully compliant with SARS, ensuring professionalism and peace of mind."
+
+Client-Centric: (Icon: Users) "We build lasting relationships by putting your needs first."
+
+6. Contact Section
+Heading: Let's Build Something Together.
+
+Layout: Two-column layout.
+
+Left Column (Contact Details):
+
+Phone: +27 68 022 2228 (Icon: Phone)
+
+Email: Ephaphathac@gmail.com (Icon: Mail)
+
+Address: 37723 Freedom Square, Bloemfontein (Icon: MapPin)
+
+Right Column (Contact Form):
+
+A simple, clean form with fields for "Full Name," "Email Address," "Service of Interest," and "Message."
+
+A "Send Message" button.
+
+7. Footer
+A simple, dark footer.
+
+© 2025 Ephaphatha Construction (Pty) Ltd. All Rights Reserved.
+
+Links to social media placeholders (Facebook, LinkedIn).
+
+Technical & Design Guidelines
+Framework: Use Tailwind CSS for all styling.
+
+Icons: Use the Lucide icon library. Load it via CDN.
+
+Font: Use a clean, modern sans-serif font like "Inter" from Google Fonts.
+
+Stock Images: Use high-quality, professional stock images from sites like Unsplash or Pexels that are relevant to construction, architecture, and teamwork. Ensure all images are royalty-free.
+
+Color Palette:
+
+Primary Dark: #9a6226
+
+Primary: #cc8400
+
+Accent/Primary Light: #ffa500
+
+Neutral Light: #eeeeee
+
+Neutral Dark: #aaaaaa
+
+Responsiveness: The site must be perfectly responsive and look great on mobile, tablet, and desktop screens.
