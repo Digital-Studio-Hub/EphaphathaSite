@@ -471,7 +471,7 @@ export default function Home() {
                 <Button 
                   onClick={() => window.open('https://wa.me/27680222228?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20construction%20services', '_blank')}
                   variant="outline"
-                  className="btn-secondary px-10 py-6 text-base border-2 border-white text-white hover:bg-white hover:text-primary"
+                  className="btn-secondary px-10 py-6 text-base border-2 border-white text-gray-900 bg-white hover:bg-gray-900 hover:text-white hover:border-gray-900"
                   data-testid="btn-hero-contact"
                 >
                   Get a Free Quote
