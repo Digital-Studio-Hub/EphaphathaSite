@@ -212,7 +212,7 @@ export default function Home() {
                   Contact
                 </button>
                 <Button 
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => window.open('https://wa.me/27680222228?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20construction%20services', '_blank')}
                   className="btn-primary px-6 py-2.5 font-semibold"
                   data-testid="btn-quote-desktop"
                 >
@@ -268,7 +268,7 @@ export default function Home() {
                   Contact
                 </button>
                 <Button 
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => window.open('https://wa.me/27680222228?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20construction%20services', '_blank')}
                   className="btn-primary px-6 py-2.5 font-semibold"
                   data-testid="btn-quote-mobile"
                 >
@@ -309,7 +309,7 @@ export default function Home() {
                   Explore Our Services
                 </Button>
                 <Button 
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => window.open('https://wa.me/27680222228?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20construction%20services', '_blank')}
                   variant="outline"
                   className="btn-secondary px-10 py-6 text-base border-2 border-white text-white hover:bg-white hover:text-primary"
                   data-testid="btn-hero-contact"
