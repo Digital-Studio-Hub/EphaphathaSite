@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { 
@@ -28,7 +28,11 @@ import {
   Linkedin,
   Award,
   TrendingUp,
-  ThumbsUp
+  ThumbsUp,
+  Quote,
+  Calendar,
+  ArrowRight,
+  Star
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -38,7 +42,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { insertContactSubmissionSchema } from "@shared/schema";
+import { insertContactSubmissionSchema, type BlogPost, type Testimonial } from "@shared/schema";
 import { SEO } from "@/components/ui/seo";
 import logoPath from "@assets/WhatsApp Image 2025-10-03 at 14.25.08_4b18e548_1760004153354.jpg";
 import heroImage from "@assets/construction-site-sunset_1760006430190.webp";
@@ -110,6 +114,162 @@ const trustFeatures = [
     description: "We build lasting relationships by putting your needs first."
   }
 ];
+
+const TestimonialsSection = () => {
+  const { data: testimonials, isLoading } = useQuery<Testimonial[]>({
+    queryKey: ['/api/testimonials'],
+  });
+
+  if (isLoading) {
+    return (
+      <section className="section-spacer bg-neutral-light" data-testid="testimonials-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="accent-underline inline-block text-gray-900 mb-10" data-testid="testimonials-title">
+              What Our Clients Say
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[1, 2].map((i) => (
+              <div key={i} className="bg-white p-8 enterprise-shadow animate-pulse">
+                <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!testimonials || testimonials.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="section-spacer bg-neutral-light" data-testid="testimonials-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="accent-underline inline-block text-gray-900 mb-10" data-testid="testimonials-title">
+            What Our Clients Say
+          </h2>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-6">
+            Don't just take our word for it — hear from our satisfied clients.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.slice(0, 4).map((testimonial) => (
+            <Card key={testimonial.id} className="testimonial-card bg-white border-0 enterprise-shadow" data-testid={`testimonial-${testimonial.id}`}>
+              <CardContent className="p-8">
+                <Quote className="w-12 h-12 text-primary mb-6" />
+                <p className="text-gray-700 text-lg leading-relaxed mb-6 italic">
+                  "{testimonial.testimonialText}"
+                </p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-gray-900 tracking-tight">{testimonial.clientName}</h4>
+                    {testimonial.clientCompany && (
+                      <p className="text-gray-600 text-sm">{testimonial.clientCompany}</p>
+                    )}
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(parseInt(testimonial.rating || "5"))].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const BlogSection = () => {
+  const { data: blogPosts, isLoading } = useQuery<BlogPost[]>({
+    queryKey: ['/api/blog'],
+  });
+
+  if (isLoading) {
+    return (
+      <section className="section-spacer bg-white" data-testid="blog-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="accent-underline inline-block text-gray-900 mb-10" data-testid="blog-title">
+              Latest News & Updates
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-neutral-light p-6 enterprise-shadow animate-pulse">
+                <div className="h-48 bg-gray-200 rounded mb-4"></div>
+                <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+                <div className="h-4 bg-gray-200 rounded w-full"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!blogPosts || blogPosts.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="section-spacer bg-white" data-testid="blog-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="accent-underline inline-block text-gray-900 mb-10" data-testid="blog-title">
+            Latest News & Updates
+          </h2>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-6">
+            Stay informed about our latest projects, industry insights, and company news.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {blogPosts.slice(0, 3).map((post) => (
+            <Card key={post.id} className="blog-card bg-white border-0 enterprise-shadow overflow-hidden group" data-testid={`blog-post-${post.id}`}>
+              {post.imageUrl && (
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={post.imageUrl} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                  <Calendar className="w-4 h-4" />
+                  <time>{new Date(post.createdAt).toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight group-hover:text-primary transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  {post.excerpt}
+                </p>
+                <button 
+                  className="text-primary font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+                  data-testid={`btn-read-more-${post.id}`}
+                >
+                  Read More <ArrowRight className="w-4 h-4" />
+                </button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -475,6 +635,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* Blog/News Section */}
+        <BlogSection />
 
         {/* Contact Section */}
         <section id="contact" className="section-spacer bg-white" data-testid="contact-section">
