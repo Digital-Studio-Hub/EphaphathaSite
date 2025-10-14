@@ -48,6 +48,7 @@ import logoPath from "@assets/WhatsApp Image 2025-10-03 at 14.25.08_4b18e548_176
 import heroImage from "@assets/construction-site-sunset_1760006430190.webp";
 import aboutImage from "@assets/civil-engineer-construction-worker-manager-holding-digital-tablet-blueprints-talking-planing-about-construction-site-cooperation-teamwork-concept_1760006430189.webp";
 import contactImage from "@assets/afro-american-builders-wearing-helmets-face-masks-while-measuring-wall_1760006430189.webp";
+import verifiedBadge from "@assets/Level 1_1760424258407.png";
 
 interface ContactFormData {
   fullName: string;
@@ -840,7 +841,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-16 border-t-4 border-primary" data-testid="footer">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div className="grid md:grid-cols-5 gap-12 mb-12">
               {/* Company Info */}
               <div className="md:col-span-1">
                 <img 
@@ -958,6 +959,25 @@ export default function Home() {
                     </p>
                   </li>
                 </ul>
+              </div>
+
+              {/* Verified Badge */}
+              <div>
+                <h3 className="text-lg font-bold mb-6 tracking-tight">Verified Badge</h3>
+                <a 
+                  href="https://lekker.network/the-lekker-network-verified" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block text-center"
+                  data-testid="footer-verified-badge"
+                >
+                  <img 
+                    src={verifiedBadge} 
+                    alt="Lekker Network Verified Badge" 
+                    className="w-32 h-32 mx-auto mb-3 hover:opacity-80 transition-opacity"
+                  />
+                  <p className="text-gray-400 text-sm">Lekker Network Verified</p>
+                </a>
               </div>
             </div>
 
