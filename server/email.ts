@@ -4,7 +4,9 @@ const url = "api.zeptomail.com/";
 const token = process.env.ZEPTOMAIL_TOKEN || "";
 
 if (!token) {
-  console.warn("Warning: ZEPTOMAIL_TOKEN is not set. Email functionality will not work.");
+  console.warn(
+    "Warning: ZEPTOMAIL_TOKEN is not set. Email functionality will not work.",
+  );
 }
 
 const client = new SendMailClient({ url, token });
@@ -22,15 +24,15 @@ export async function sendContactFormNotification(data: ContactFormEmail) {
     const adminResponse = await client.sendMail({
       from: {
         address: "noreply@ephaphatha.co.za",
-        name: "Ephaphatha Construction Website"
+        name: "Ephaphatha Construction Website",
       },
       to: [
         {
           email_address: {
-            address: "raymond@digitalstudiohub.com",
-            name: "Raymond"
-          }
-        }
+            address: "info@ephaphatha.co.za",
+            name: "Ephaphatha Construction",
+          },
+        },
       ],
       subject: `New Contact Form Submission from ${data.fullName}`,
       htmlbody: `
@@ -51,22 +53,22 @@ export async function sendContactFormNotification(data: ContactFormEmail) {
         </div>
       `,
       track_clicks: false,
-      track_opens: false
+      track_opens: false,
     });
 
     // Send confirmation email to user
     const userResponse = await client.sendMail({
       from: {
         address: "noreply@ephaphatha.co.za",
-        name: "Ephaphatha Construction"
+        name: "Ephaphatha Construction",
       },
       to: [
         {
           email_address: {
             address: data.email,
-            name: data.fullName
-          }
-        }
+            name: data.fullName,
+          },
+        },
       ],
       subject: "Thank you for contacting Ephaphatha Construction",
       htmlbody: `
@@ -112,7 +114,7 @@ export async function sendContactFormNotification(data: ContactFormEmail) {
         </div>
       `,
       track_clicks: false,
-      track_opens: false
+      track_opens: false,
     });
 
     console.log("✅ Email sent successfully to admin and user");
