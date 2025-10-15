@@ -6,6 +6,7 @@ import {
   insertBlogPostSchema,
   insertTestimonialSchema
 } from "@shared/schema";
+import { sendContactFormNotification } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -13,6 +14,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactSubmissionSchema.parse(req.body);
       const submission = await storage.createContactSubmission(validatedData);
+      
+      // Send email notifications via ZeptoMail
+      try {
+        await sendContactFormNotification(validatedData);
+        console.log("✅ Contact form email sent successfully");
+      } catch (emailError) {
+        console.error("⚠️ Email sending failed, but form submission was saved:", emailError);
+        // Continue even if email fails - the form submission is still saved
+      }
       
       res.json({ 
         success: true, 
@@ -93,6 +103,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Failed to create testimonial:", error);
       res.status(400).json({ success: false, message: "Failed to create testimonial" });
+    }
+  });
+
+  // Test email endpoint (for development/testing only)
+  app.post("/api/test-email", async (req, res) => {
+    try {
+      await sendContactFormNotification({
+        fullName: "Test User",
+        email: "test@example.com",
+        service: "General Building",
+        message: "This is a test email to verify ZeptoMail integration is working correctly."
+      });
+      res.json({ success: true, message: "Test email sent successfully" });
+    } catch (error) {
+      console.error("Test email failed:", error);
+      res.status(500).json({ success: false, message: "Test email failed", error: String(error) });
     }
   });
 
