@@ -15,7 +15,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertContactSubmissionSchema.parse(req.body);
       const submission = await storage.createContactSubmission(validatedData);
       
-      // Send email notifications via ZeptoMail
+      // Send email notifications without blocking the saved submission
       try {
         await sendContactFormNotification(validatedData);
         console.log("✅ Contact form email sent successfully");
@@ -113,7 +113,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         fullName: "Test User",
         email: "test@example.com",
         service: "General Building",
-        message: "This is a test email to verify ZeptoMail integration is working correctly."
+        message: "This is a test email to verify inbound email integration is working correctly."
       });
       res.json({ success: true, message: "Test email sent successfully" });
     } catch (error) {

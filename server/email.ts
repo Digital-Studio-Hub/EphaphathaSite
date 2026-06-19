@@ -1,15 +1,13 @@
-import { SendMailClient } from "zeptomail";
+import { Inbound } from "inboundemail";
 
-const url = "api.zeptomail.com/";
-const token = process.env.ZEPTOMAIL_TOKEN || "";
+const apiKey = process.env.INBOUND_API_KEY || "";
+const from = "Cledwyn from Lekker Network <cledwyn@lekker.network>";
 
-if (!token) {
-  console.warn(
-    "Warning: ZEPTOMAIL_TOKEN is not set. Email functionality will not work.",
-  );
+if (!apiKey) {
+  console.warn("INBOUND_API_KEY not found - emails will not be sent");
 }
 
-const client = new SendMailClient({ url, token });
+const client = apiKey ? new Inbound(apiKey) : null;
 
 interface ContactFormEmail {
   fullName: string;
@@ -19,23 +17,18 @@ interface ContactFormEmail {
 }
 
 export async function sendContactFormNotification(data: ContactFormEmail) {
+  if (!client) {
+    console.error("INBOUND_API_KEY not configured; skipping contact form emails");
+    return { success: false };
+  }
+
   try {
     // Send email to admin
-    const adminResponse = await client.sendMail({
-      from: {
-        address: "noreply@ephaphatha.co.za",
-        name: "Ephaphatha Construction Website",
-      },
-      to: [
-        {
-          email_address: {
-            address: "info@ephaphatha.co.za",
-            name: "Ephaphatha Construction",
-          },
-        },
-      ],
+    const adminResponse = await client.emails.send({
+      from,
+      to: "info@ephaphatha.co.za",
       subject: `New Contact Form Submission from ${data.fullName}`,
-      htmlbody: `
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #ff8c00; border-bottom: 3px solid #ff8c00; padding-bottom: 10px;">New Contact Form Submission</h2>
           
@@ -52,26 +45,14 @@ export async function sendContactFormNotification(data: ContactFormEmail) {
           </p>
         </div>
       `,
-      track_clicks: false,
-      track_opens: false,
     });
 
     // Send confirmation email to user
-    const userResponse = await client.sendMail({
-      from: {
-        address: "noreply@ephaphatha.co.za",
-        name: "Ephaphatha Construction",
-      },
-      to: [
-        {
-          email_address: {
-            address: data.email,
-            name: data.fullName,
-          },
-        },
-      ],
+    const userResponse = await client.emails.send({
+      from,
+      to: data.email,
       subject: "Thank you for contacting Ephaphatha Construction",
-      htmlbody: `
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #ff8c00; border-bottom: 3px solid #ff8c00; padding-bottom: 10px;">Thank You for Reaching Out!</h2>
           
@@ -113,8 +94,6 @@ export async function sendContactFormNotification(data: ContactFormEmail) {
           </p>
         </div>
       `,
-      track_clicks: false,
-      track_opens: false,
     });
 
     console.log("✅ Email sent successfully to admin and user");
